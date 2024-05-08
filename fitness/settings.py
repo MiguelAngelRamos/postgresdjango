@@ -72,6 +72,7 @@ DATABASES = {
         'PORT': config('DATABASE_PORT'),
     }
 }
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

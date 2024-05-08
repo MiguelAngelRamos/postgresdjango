@@ -1,3 +1,11 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import CustomUser
 
-# Register your models here.
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+    fieldsets = UserAdmin.fieldsets + (
+        (None, {'fields': ('health_details', 'preferred_activities')}),
+    )
+    
+admin.site.register(CustomUser, CustomUserAdmin)
