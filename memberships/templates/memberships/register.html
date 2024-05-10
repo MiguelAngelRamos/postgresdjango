@@ -1,16 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro</title>
-</head>
-<body>
-  <h1>Registro</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Registrarse</button>
-  </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+ <h1>Registro</h1>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+  <div class="mb-3">
+    <label for="{{field.id_for_label}}" class="form-label">{{ field.label }}</label>
+    {{ field|add_class:"form-control"}}
+    {% for error in field.errors %}
+    <div class="mt-5 alert alert-danger">{{ error }} </div>
+{% endfor %}
+  </div>
+{% endfor %}
+  <button class="btn btn-primary" type="submit">Registrarse</button>
+</form> 
+{% endblock %}
+
+
+<!-- 
+<!-- 
+<h1>Registro</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }} 
+  <button type="submit">Registrarse</button>
+
+    {% for error in field.errors %}
+          <div class="alert alert-danger">{{ error }} </div>
+  {% endfor %}
+</form>
+-->
+
+-->
