@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.utils.crypto import get_random_string
-from django.core.mail import send_email
+from django.core.mail import send_mail
 # Create your views here.
 def register(request):
     if request.method == 'POST':
@@ -15,7 +15,7 @@ def register(request):
             user.set_password(temp_password)
             user.save()
             # Enviar el correo electronico
-            send_email(
+            send_mail(
                 'Tu contraseña Temporal - FitZone',
                 f'Hola {user.first_name}, aqui está tu contraseña temporal: {temp_password}\n Por favor cambia esta contraseña tras iniciar sesión por primera vez',
                 'tucorreo@outlook.com',

@@ -71,7 +71,7 @@ DATABASES = {
         'USER': config('DATABASE_USER'),
         'PASSWORD': config('DATABASE_PASSWORD'),
         'HOST': config('DATABASE_HOST'),
-        'PORT': config(''),
+        'PORT': config('DATABASE_PORT')
     }
 }
 
@@ -132,8 +132,8 @@ AUTH_USER_MODEL = 'memberships.CustomUser'
 # Configurar el Email del Backend
 EMAIL_BACKEND = config('BACKEND')
 EMAIL_HOST = config('HOST')
-EMAIL_PORT = config('PORT')
-EMAIL_USE_TLS = config('USE_TLS')
+EMAIL_PORT = config('PORT', default=587)
+EMAIL_USE_TLS = config('USE_TLS', cast=bool)
 EMAIL_HOST_USER = config('HOST_USER')
 EMAIL_HOST_PASSWORD = config('HOST_PASSWORD')
 
