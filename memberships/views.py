@@ -18,7 +18,7 @@ def register(request):
             send_mail(
                 'Tu contraseña Temporal - FitZone',
                 f'Hola {user.first_name}, aqui está tu contraseña temporal: {temp_password}\n Por favor cambia esta contraseña tras iniciar sesión por primera vez',
-                'tucorreo@outlook.com',
+                'fefe@outlook.com',
                 [user.email],
                 fail_silently = False
                 

@@ -130,10 +130,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'memberships.CustomUser'
 
 # Configurar el Email del Backend
-EMAIL_BACKEND = config('BACKEND')
-EMAIL_HOST = config('HOST')
-EMAIL_PORT = config('PORT', default=587)
-EMAIL_USE_TLS = config('USE_TLS', cast=bool)
-EMAIL_HOST_USER = config('HOST_USER')
-EMAIL_HOST_PASSWORD = config('HOST_PASSWORD')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'fefe@outlook.com'  
+EMAIL_HOST_PASSWORD = 'contraseñareal'  
 
